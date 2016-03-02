@@ -31,11 +31,10 @@ for i=1:length(image_files)
 	[f, d] = vl_dsift(Is, 'size', binSize) ;
 	f(3,:) = binSize/magnif ;
 	f(4,:) = 0 ;
-	
+	size(d)
+
 	[pathstr,name,ext] = fileparts(image_files(i).name);
-	save_file = fullfile(save_dir, [name, '.txt'])
-	fid1=fopen(save_file,'wt');
-	fprintf(fid1,'%d\n',d(:));
-	fclose(fid1);
+	save_file = fullfile(save_dir, [name, '.mat'])
+	save(save_file, 'd','f');
 end
 
