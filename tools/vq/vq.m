@@ -19,7 +19,7 @@ frame_per_media = 1;
 sift_files = dir(sift_dir);
 sift_files([sift_files.isdir]) = []; 	
 
-data = np.zeros(128, frame_per_media*length(sift_files));
+data = zeros(128, frame_per_media*length(sift_files));
 for i=1:length(sift_files),
 	sift_file = fullfile(sift_dir, sift_files(i).name)
 	load(sift_file)
@@ -36,14 +36,14 @@ save(fullfile(work_dir, 'kmeans_centroids.mat'), 'C')
 for i=1:length(sift_files),
 	sift_file = fullfile(sift_dir, sift_files(i).name)
 	load(sift_file)
-	vq = np.zeros(K, 1);
+	veq = zeros(K, 1, 'uint8');
 	for j=1:size(D,2)
 		dis = sum((repmat(D(:,j)', K, 1)-C).^2, 2);
 		[x, idx] = min(dis);
-		vq(idx) = 1;
+		veq(idx) = 1;
 	end
 	fid = fopen(fullfile(vq_dir, sift_files(i).name),'wt');
-	fprintf(fid,'%d', vq);
+	fprintf(fid,'%d', veq);
 	fclose(fid);
 end
 
