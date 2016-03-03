@@ -14,7 +14,7 @@ frame_per_media = 10;
 %K = 256
 %frame_per_media = 1;
 
-vq_dir = [work_dir, ['/vq_K', K, '_fpm', frame_per_media]]
+vq_dir = [work_dir, ['/vq_K', num2str(K), '_fpm', num2str(frame_per_media)]]
 if ~exist(vq_dir),
 	mkdir(vq_dir)
 end
@@ -34,7 +34,7 @@ end
 data = single(data');
 
 [IDX, C] = kmeans(data, K);
-save(fullfile(work_dir, ['K', K, '_fpm', frame_per_media, '_centroids.mat']), 'C')
+save(fullfile(work_dir, ['K', num2str(K), '_fpm', num2str(frame_per_media), '_centroids.mat']), 'C')
 
 load(fullfile(work_dir, 'kmeans_centroids.mat')) 
 for i=1:length(sift_files),
