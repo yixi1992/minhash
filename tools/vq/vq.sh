@@ -1,7 +1,13 @@
 #!/bin/bash
 
-#SBATCH -t 10:00:00
+#SBATCH -t 40:00:00
 #SBATCH -N 1
+##SBATCH -p scavenger
+#SBATCH --mail-user=yixi@cs.umd.edu
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH --job-name="kmeans"
+
 
 #source /lustre/yixi/decouplednet/DecoupledNet/inference/load_deeplab_dependencies.sh
 

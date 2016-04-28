@@ -9,8 +9,8 @@ work_dir = ['/lustre/yixi/janus/dsift/bs', num2str(binSize), '_mf', num2str(magn
 sift_dir = [work_dir, '/frame']
 
 % K for k-means
-K = 65536
-frame_per_media = 10;
+K = 1025
+frame_per_media = 4;
 %K = 256
 %frame_per_media = 1;
 
@@ -36,7 +36,7 @@ data = single(data');
 [IDX, C] = kmeans(data, K);
 save(fullfile(work_dir, ['K', num2str(K), '_fpm', num2str(frame_per_media), '_centroids.mat']), 'C')
 
-load(fullfile(work_dir, 'kmeans_centroids.mat')) 
+%load(fullfile(work_dir, ['K', num2str(K), '_fpm', num2str(frame_per_media), '_centroids.mat'])) 
 for i=1:length(sift_files),
 	sift_file = fullfile(sift_dir, sift_files(i).name)
 	load(sift_file)
