@@ -1,6 +1,6 @@
 
 
-binSize = 20 ;
+%binSize = 5 ;
 magnif = 3 ;
 Rwidth = 100;
 Rheight = 100;
@@ -9,8 +9,8 @@ work_dir = ['/lustre/yixi/janus/dsift/bs', num2str(binSize), '_mf', num2str(magn
 sift_dir = [work_dir, '/frame']
 
 % K for k-means
-K = 1025
-frame_per_media = 4;
+%K = 512
+%frame_per_media = 2;
 %K = 256
 %frame_per_media = 1;
 
