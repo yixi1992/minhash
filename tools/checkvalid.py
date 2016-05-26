@@ -3,9 +3,9 @@ import glob
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-
+#/lustre/yixi/janus/dsift/bs5_mf3_w100_h100 vq_K1024_fpm4
 work_dir = '/lustre/yixi/janus/dsift/'
-dsifts = glob.glob(os.path.join(work_dir, 'bs20_mf3_w100_h100/vq_K256_fpm1/*'))
+dsifts = glob.glob(os.path.join(work_dir, 'bs5_mf3_w100_h100/vq_K1024_fpm4/*'))
 
 
 media_profile = {}
@@ -82,7 +82,7 @@ def computedist():
 			plothist(os.path.join(work_dir, 'inter_class'), hist_inter)
 
 def computeclustersize():
-	hist = np.zeros(256)
+	hist = np.zeros(1024)
 	for media_id in media_profile:
 		files = media_profile[media_id]
 		n = len(files)
@@ -96,7 +96,7 @@ def computeclustersize():
 	
 	plt.clf()
 	hist = sorted(hist)
-	plt.bar(range(0, 256), hist)
+	plt.bar(range(0, len(hist)), hist)
 	plt.ylabel('cluster size')
 	plt.title(os.path.basename('clustr size'))
 	plt.savefig(os.path.join(work_dir, 'cluster_size'))

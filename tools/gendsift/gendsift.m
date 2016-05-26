@@ -2,7 +2,7 @@
 run('vlfeat-0.9.20/toolbox/vl_setup.m')
 image_dir = '/lustre/yixi/janus/frame'
 
-%binSize = 5 ;
+%binSize = 40 ;
 %magnif = 3 ;
 Rwidth = 100;
 Rheight = 100;

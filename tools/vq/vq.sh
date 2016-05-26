@@ -12,4 +12,4 @@
 #source /lustre/yixi/decouplednet/DecoupledNet/inference/load_deeplab_dependencies.sh
 
 module load matlab
-matlab -nodisplay -nosplash -r "binSize=5; K=512; frame_per_media = 4; run('vq.m'); exit"
+matlab -nodisplay -nosplash -r "binSize=5; K=1024; frame_per_media = 2; run('vq.m'); exit"
